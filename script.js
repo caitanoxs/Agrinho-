@@ -320,7 +320,6 @@ function drawChart(){
   if(!cc)return;
   var ctx=cc.getContext('2d');
 
-  // Make canvas responsive + sharp on HiDPI
   var dpr=window.devicePixelRatio||1;
   var cssW=cc.offsetWidth||800;
   var cssH=Math.min(400, Math.round(cssW*0.5));
@@ -339,7 +338,6 @@ function drawChart(){
   var textColor=isLight?'#121a14':(isContrast?'#ffffff':'#e8ece9');
   var lineColor='#4ade80';
 
-  // Dynamic Y range from data
   var minD=Infinity, maxD=-Infinity;
   for(var i=0;i<chartData.length;i++){
     if(chartData[i]<minD)minD=chartData[i];
@@ -353,7 +351,7 @@ function drawChart(){
   function yFor(v){return h-pad-((v-minVal)/(maxVal-minVal))*(h-pad*2);}
   function xFor(i){return pad+(i/(chartLabels.length-1))*(w-pad*2);}
 
-  // Grid & Y labels
+
   ctx.font='12px system-ui';
   ctx.fillStyle=textColor;
   ctx.textAlign='right';
@@ -364,21 +362,21 @@ function drawChart(){
     ctx.beginPath();ctx.moveTo(pad,y);ctx.lineTo(w-pad,y);ctx.stroke();
   }
 
-  // X labels
+
   ctx.textAlign='center';
   ctx.fillStyle=textColor;
   for(var i=0;i<chartLabels.length;i++){
     ctx.fillText(chartLabels[i],xFor(i),h-pad+20);
   }
 
-  // Dashed line separating real vs projection
+ 
   var splitX=xFor(3)+((xFor(4)-xFor(3))/2);
   ctx.strokeStyle=isLight?'rgba(0,0,0,0.15)':'rgba(255,255,255,0.12)';
   ctx.setLineDash([5,5]);
   ctx.beginPath();ctx.moveTo(splitX,pad);ctx.lineTo(splitX,h-pad);ctx.stroke();
   ctx.setLineDash([]);
 
-  // Labels above split
+  
   ctx.font='11px system-ui';
   ctx.textAlign='center';
   ctx.fillStyle=textColor;
@@ -386,37 +384,37 @@ function drawChart(){
   ctx.fillStyle=lineColor;
   ctx.fillText(currentLang==='pt'?'Projeção':'Projection', splitX+((w-pad-splitX)/2), pad-12);
 
-  // Points
+  
   var points=[];
   for(var i=0;i<chartData.length;i++){
     points.push({x:xFor(i),y:yFor(chartData[i]),val:chartData[i],lab:chartLabels[i]});
   }
 
-  // Fill area
+  
   ctx.fillStyle='rgba(74,222,128,0.08)';
   ctx.beginPath();ctx.moveTo(points[0].x,h-pad);
   for(var i=0;i<points.length;i++)ctx.lineTo(points[i].x,points[i].y);
   ctx.lineTo(points[points.length-1].x,h-pad);ctx.closePath();ctx.fill();
 
-  // Line
+  
   ctx.beginPath();ctx.moveTo(points[0].x,points[0].y);
   for(var i=1;i<points.length;i++)ctx.lineTo(points[i].x,points[i].y);
   ctx.strokeStyle=lineColor;ctx.lineWidth=3;ctx.lineJoin='round';ctx.stroke();
 
-  // Solid dots (real data: 0-3)
+ 
   for(var i=0;i<points.length;i++){
     ctx.beginPath();ctx.arc(points[i].x,points[i].y,5,0,Math.PI*2);
     ctx.fillStyle=lineColor;ctx.fill();
     ctx.strokeStyle=isLight?'#f5f7f5':'#0a0f0a';ctx.lineWidth=2;ctx.stroke();
   }
-  // Open dots (projection: 4+)
+  
   for(var i=4;i<points.length;i++){
     ctx.beginPath();ctx.arc(points[i].x,points[i].y,3,0,Math.PI*2);
     ctx.fillStyle=isLight?'#f5f7f5':'#0a0f0a';ctx.fill();
     ctx.strokeStyle=lineColor;ctx.lineWidth=2;ctx.stroke();
   }
 
-  // Tooltip
+ 
   cc.onmousemove=function(e){
     var r=cc.getBoundingClientRect();
     var mx=e.clientX-r.left,my=e.clientY-r.top;
@@ -450,7 +448,7 @@ function drawChart(){
   cc.onmouseleave=function(){drawChart();};
 }
 
-// Redraw chart on resize to keep it sharp
+
 var chartResizeTimer;
 window.addEventListener('resize',function(){
   clearTimeout(chartResizeTimer);
