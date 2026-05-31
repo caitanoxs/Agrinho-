@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Pesquisa escolar 2026 sobre Sucessão Rural Sustentável: inovação, jovens e agroecologia no campo brasileiro.">
+  <meta property="og:title" content="Sucessão Rural Sustentável | Pesquisa 2026">
+  <meta property="og:description" content="Inovação, jovens e agroecologia moldando o futuro do campo brasileiro.">
+  <meta property="og:type" content="website">
+  <title>Sucessão Rural Sustentável | Pesquisa 2026</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="loader">
+  <div class="loader-title" data-key="loader_title">Jovens no Campo</div>
+  <div class="loader-bar"><div class="loader-progress"></div></div>
+</div>
+<div class="progress-bar-top"></div>
+
+<nav id="navbar">
+  <div class="nav-container">
+    <div class="nav-links" id="navLinks">
+      <a href="#hero" data-key="nav_home">Início</a>
+      <a href="#desafios" data-key="nav_challenges">Desafios</a>
+      <a href="#educacao" data-key="nav_education">Educação</a>
+      <a href="#politicas" data-key="nav_policies">Políticas</a>
+      <a href="#protagonismo" data-key="nav_protagonism">Protagonismo</a>
+      <a href="#dados" data-key="nav_data">Dados</a>
+    </div>
+    <button class="access-btn" id="accessBtn" aria-label="Menu acessibilidade" aria-expanded="false" aria-controls="dropdownPanel">👤</button>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Abrir menu">☰</button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu"></div>
+</nav>
+
+<div class="dropdown-panel" id="dropdownPanel">
+  <button id="themeToggle"><span>🌙</span> <span data-key="btn_theme">Modo escuro/claro</span></button>
+  <button id="contrastToggle"><span>👁</span> <span data-key="btn_contrast">Alto contraste</span></button>
+  <button id="fontDecrease">A-</button>
+  <button id="fontReset">A↺</button>
+  <button id="fontIncrease">A+</button>
+  <button id="langPt">🇧🇷 PT</button>
+  <button id="langEn">🇺🇸 EN</button>
+</div>
+
+<main>
+  <section id="hero" class="hero">
+    <div class="hero-bg" id="heroBg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-label" data-key="hero_label">PESQUISA 2026</div>
+      <h1 class="hero-title" id="heroTitle">Sucessão Rural Sustentável</h1>
+      <p class="hero-sub" data-key="hero_sub">Inovação, jovens e agroecologia moldando o futuro do campo brasileiro</p>
+      <div class="hero-buttons">
+        <a href="#desafios" class="btn-primary" data-key="hero_btn1">Explorar pesquisa</a>
+        <a href="https://www.youtube.com/watch?v=0-PukVlS-IY" target="_blank" rel="noopener noreferrer" class="btn-outline" data-key="hero_btn2">Assistir documentário ↗</a>
+      </div>
+    </div>
+    <div class="scroll-indicator"></div>
+  </section>
+
+  <section id="stats" class="container">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-number" data-count="42">0</div>
+        <div class="stat-label" data-key="stat1">Milhões de hectares subutilizados</div>
+        <div class="stat-particles">
+          <span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" data-count="70">0</div>
+        <div class="stat-label" data-key="stat2">% dos jovens rurais que buscam cursos técnicos</div>
+        <div class="stat-particles">
+          <span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" data-count="18">0</div>
+        <div class="stat-label" data-key="stat3">% de redução do êxodo rural (2020-2025)</div>
+        <div class="stat-particles">
+          <span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" data-count="150">0</div>
+        <div class="stat-label" data-key="stat4">+150 mil propriedades com sucessão familiar</div>
+        <div class="stat-particles">
+          <span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="desafios" class="slider-section">
+    <div class="slider-container" id="sliderContainer">
+      <div class="slide active" style="background-image:url('img/slide-trabalhador.jpg');">
+        <div class="slide-overlay"></div><div class="slide-number">01</div>
+        <div class="slide-content"><h2 data-key="slide1_title">Envelhecimento do produtor rural</h2><p data-key="slide1_desc">Média etária acima de 58 anos, desafio de renovação geracional.</p></div>
+      </div>
+      <div class="slide" style="background-image:url('img/slide-drone.jpg');">
+        <div class="slide-overlay"></div><div class="slide-number">02</div>
+        <div class="slide-content"><h2 data-key="slide2_title">Acesso limitado à tecnologia</h2><p data-key="slide2_desc">Conectividade no campo ainda é desafio para jovens inovadores.</p></div>
+      </div>
+      <div class="slide" style="background-image:url('img/slide-credito.jpg');">
+        <div class="slide-overlay"></div><div class="slide-number">03</div>
+        <div class="slide-content"><h2 data-key="slide3_title">Crédito e assistência técnica</h2><p data-key="slide3_desc">Linhas de financiamento para sucessão ainda são burocráticas.</p></div>
+      </div>
+      <div class="slider-btns"><button id="prevSlide" aria-label="Previous slide">❮</button><button id="nextSlide" aria-label="Next slide">❯</button></div>
+      <div class="slider-dots" id="sliderDots"></div>
+    </div>
+  </section>
+
+  <section id="educacao" class="container">
+    <div class="split-layout">
+      <div class="split-image" style="background-image:url('img/educacao-estudantes.jpg'); background-size:cover;"></div>
+      <div class="split-text">
+        <span class="accent-text" data-key="edu_label">Educação</span>
+        <h2 class="heading-large" data-key="edu_title">Pedagogia da Alternância</h2>
+        <p data-key="edu_desc">Modelo que integra tempo-escola e tempo-comunidade, revolucionando a formação jovem.</p>
+        <div class="timeline-item timeline-item-1 sr"><strong>01 · <span data-key="tl1_title">Teoria</span></strong><p data-key="timeline1">Base científica e gestão sustentável no campo.</p></div>
+        <div class="timeline-item timeline-item-2 sr"><strong>02 · <span data-key="tl2_title">Prática</span></strong><p data-key="timeline2">Vivência direta na propriedade familiar e inovação.</p></div>
+        <div class="timeline-item timeline-item-3 sr"><strong>03 · <span data-key="tl3_title">Alternância</span></strong><p data-key="timeline3">Intercâmbio de saberes entre juventude e agricultores experientes.</p></div>
+        <blockquote class="quote-block" data-key="quote_edu">"A alternância forma jovens protagonistas da transição agroecológica."</blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section id="politicas" class="container">
+    <h2 class="heading-medium" data-key="policy_title">Lei 15.178/2025 — Programa Nacional de Sucessão Rural</h2>
+    <div class="policy-grid" id="policyGrid"></div>
+    <div class="text-center-mt"><p data-key="policy_cite">“Primeiro marco legal para incentivar jovens no campo com prioridade fiscal e técnica.”</p></div>
+  </section>
+
+  <section id="protagonismo" class="hero hero-short">
+    <div class="hero-bg prot-hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content hero-content-narrow">
+      <span class="accent-text" data-key="prot_label">JOVENS PROTAGONISTAS</span>
+      <h2 data-key="prot_title">Tecnologia e empreendedorismo no agro</h2>
+      <p data-key="prot_desc">Bioinsumos, drones, gestão digital e rastreabilidade: a nova geração rural conectada.</p>
+        <div class="badge-group"><span class="badge" style="--depth:10px;--delay:0s" data-key="badge1">🌾 Agricultura de precisão</span><span class="badge" style="--depth:25px;--delay:0.3s" data-key="badge2">📱 Gestão de fazenda 4.0</span><span class="badge" style="--depth:40px;--delay:0.6s" data-key="badge3">💡 Bioeconomia</span></div>
+      <button id="openModalBtn" class="btn-primary" data-key="prot_btn">Saiba mais</button>
+    </div>
+  </section>
+
+  <section id="dados" class="container">
+    <h2 data-key="chart_title">População rural ativa: evolução e projeção (2012-2030)</h2>
+    <canvas id="ruralChart" width="800" height="400"></canvas>
+    <p class="source-text" data-key="chart_note">* Dados de 2012 a 2021: IBGE / PNAD Contínua. Valores de 2024 a 2030 são projeções baseadas em tendências atuais de sucessão rural.</p>
+  </section>
+
+  <footer>
+    <p data-key="footer_credits">Aluno Davi Caitano · Colégio Estadual Padre Cláudio Morelli · Orientador Rafael Biano</p>
+    <button id="backToTop" class="btn-back-to-top" data-key="btn_backtop">↑ Voltar ao início</button>
+  </footer>
+</main>
+
+<div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-content">
+    <h3 id="modalTitle" data-key="modal_title">Inovação e Protagonismo Jovem</h3>
+    <p data-key="modal_text">Iniciativas de jovens rurais estão transformando territórios com agroflorestas, energias renováveis e comercialização digital. O protagonismo sustentável gera emprego e mantém a família no campo com dignidade.</p>
+    <button id="closeModalBtn" class="btn-outline btn-modal-close" data-key="btn_close">Fechar</button>
+  </div>
+</div>
+
+<div class="custom-cursor" id="customCursor">
+  <div class="cursor-seed"></div>
+  <div class="cursor-ring"></div>
+</div>
+
+<script defer src="script.js"></script>
+</body>
+</html>
