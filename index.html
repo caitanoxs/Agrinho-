@@ -8,7 +8,7 @@
   <meta property="og:description" content="Inovação, jovens e agroecologia moldando o futuro do campo brasileiro.">
   <meta property="og:type" content="website">
   <title>Sucessão Rural Sustentável | Pesquisa 2026</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
 <div id="loader">
@@ -22,10 +22,17 @@
     <div class="nav-links" id="navLinks">
       <a href="#hero" data-key="nav_home">Início</a>
       <a href="#desafios" data-key="nav_challenges">Desafios</a>
+      <a href="#teorias" data-key="nav_theories">Teorias</a>
       <a href="#educacao" data-key="nav_education">Educação</a>
+      <a href="#panorama" data-key="nav_panorama">Panorama</a>
       <a href="#politicas" data-key="nav_policies">Políticas</a>
+      <a href="#ciclo" data-key="nav_cycle">Ciclo</a>
+      <a href="#revisao" data-key="nav_review">Revisão</a>
       <a href="#protagonismo" data-key="nav_protagonism">Protagonismo</a>
+      <a href="#paradoxo" data-key="nav_paradox">Paradoxo</a>
       <a href="#dados" data-key="nav_data">Dados</a>
+      <a href="#recomendacoes" data-key="nav_recommendations">Ações</a>
+      <a href="#referencias" data-key="nav_references">Fontes</a>
     </div>
     <button class="access-btn" id="accessBtn" aria-label="Menu acessibilidade" aria-expanded="false" aria-controls="dropdownPanel">👤</button>
     <button class="hamburger" id="hamburgerBtn" aria-label="Abrir menu">☰</button>
@@ -56,10 +63,19 @@
         <a href="https://www.youtube.com/watch?v=0-PukVlS-IY" target="_blank" rel="noopener noreferrer" class="btn-outline" data-key="hero_btn2">Assistir documentário ↗</a>
       </div>
     </div>
-    <div class="scroll-indicator"></div>
+    <div class="scroll-hint" aria-hidden="true">
+      <div class="scroll-hint-line"></div>
+    </div>
+    <canvas id="heroParticles" aria-hidden="true"></canvas>
   </section>
 
-  <section id="stats" class="container">
+  <div class="wave-divider wave-to-stats" aria-hidden="true">
+    <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+      <path class="wave-path" d="M0,64L48,69.3C96,75,192,85,288,80C384,75,480,53,576,48C672,43,768,53,864,69.3C960,85,1056,107,1152,101.3C1248,96,1344,64,1392,48L1440,32L1440,120L1392,120C1344,120,1248,120,1152,120C1056,120,960,120,864,120C768,120,672,120,576,120C480,120,384,120,288,120C192,120,96,120,48,120L0,120Z"></path>
+    </svg>
+  </div>
+
+  <section id="stats" class="stats-section">
     <div class="stats-grid">
       <div class="stat-item">
         <div class="stat-number" data-count="42">0</div>
@@ -98,26 +114,69 @@
 
   <section id="desafios" class="slider-section">
     <div class="slider-container" id="sliderContainer">
-      <div class="slide active" style="background-image:url('img/slide-trabalhador.jpg');">
-        <div class="slide-overlay"></div><div class="slide-number">01</div>
+      <div class="slide active slide-challenge-1">
+        <div class="slide-overlay-main"></div>
+        <div class="slide-overlay-top"></div>
+        <div class="slide-overlay-side"></div>
+        <div class="slide-deco-num" aria-hidden="true">01</div>
+        <div class="slide-number" aria-hidden="true">01</div>
         <div class="slide-content"><h2 data-key="slide1_title">Envelhecimento do produtor rural</h2><p data-key="slide1_desc">Média etária acima de 58 anos, desafio de renovação geracional.</p></div>
       </div>
-      <div class="slide" style="background-image:url('img/slide-drone.jpg');">
-        <div class="slide-overlay"></div><div class="slide-number">02</div>
-        <div class="slide-content"><h2 data-key="slide2_title">Acesso limitado à tecnologia</h2><p data-key="slide2_desc">Conectividade no campo ainda é desafio para jovens inovadores.</p></div>
+      <div class="slide slide-challenge-2">
+        <div class="slide-overlay-main"></div>
+        <div class="slide-overlay-top"></div>
+        <div class="slide-overlay-side"></div>
+        <div class="slide-deco-num" aria-hidden="true">02</div>
+        <div class="slide-number" aria-hidden="true">02</div>
+        <div class="slide-content"><h2 data-key="slide2_title">Acesso limitado à tecnologia</h2><p data-key="slide2_desc">Conectividade no campo ainda é um desafio para jovens inovadores.</p></div>
       </div>
-      <div class="slide" style="background-image:url('img/slide-credito.jpg');">
-        <div class="slide-overlay"></div><div class="slide-number">03</div>
+      <div class="slide slide-challenge-3">
+        <div class="slide-overlay-main"></div>
+        <div class="slide-overlay-top"></div>
+        <div class="slide-overlay-side"></div>
+        <div class="slide-deco-num" aria-hidden="true">03</div>
+        <div class="slide-number" aria-hidden="true">03</div>
         <div class="slide-content"><h2 data-key="slide3_title">Crédito e assistência técnica</h2><p data-key="slide3_desc">Linhas de financiamento para sucessão ainda são burocráticas.</p></div>
       </div>
-      <div class="slider-btns"><button id="prevSlide" aria-label="Previous slide">❮</button><button id="nextSlide" aria-label="Next slide">❯</button></div>
+      <button id="prevSlide" class="slider-arrow slider-arrow-left" aria-label="Slide anterior">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      </button>
+      <button id="nextSlide" class="slider-arrow slider-arrow-right" aria-label="Próximo slide">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </button>
       <div class="slider-dots" id="sliderDots"></div>
+    </div>
+  </section>
+
+  <section id="teorias" class="container">
+    <h2 class="heading-medium" data-key="theories_title">Teorias da Migração Juvenil</h2>
+    <div class="theory-grid">
+      <div class="theory-card sr">
+        <div class="theory-icon">↔</div>
+        <h3 data-key="theory1_title">Push-Pull (Ravenstein)</h3>
+        <p data-key="theory1_desc">Fatores de expulsão (desemprego, pobreza) e atração (oportunidades urbanas) explicam o fluxo migratório.</p>
+      </div>
+      <div class="theory-card sr">
+        <div class="theory-icon">👨‍👩‍👧‍👦</div>
+        <h3 data-key="theory2_title">Nova Economia da Migração (NELM)</h3>
+        <p data-key="theory2_desc">A decisão de migrar é familiar — estratégia de gestão de risco diante da falha do mercado rural.</p>
+      </div>
+      <div class="theory-card sr">
+        <div class="theory-icon">🌍</div>
+        <h3 data-key="theory3_title">Teoria do Sistema-Mundo (Wallerstein)</h3>
+        <p data-key="theory3_desc">A dependência estrutural entre países pobres e ricos gera fluxos migratórios forçados pelo capitalismo global.</p>
+      </div>
+      <div class="theory-card sr">
+        <div class="theory-icon">💭</div>
+        <h3 data-key="theory4_title">Fatores Socialmente Incorporados</h3>
+        <p data-key="theory4_desc">Aspirações de futuro, educação, expectativas de gênero e redes de parentesco impulsionam a migração.</p>
+      </div>
     </div>
   </section>
 
   <section id="educacao" class="container">
     <div class="split-layout">
-      <div class="split-image" style="background-image:url('img/educacao-estudantes.jpg'); background-size:cover;"></div>
+      <div class="split-image split-educacao"></div>
       <div class="split-text">
         <span class="accent-text" data-key="edu_label">Educação</span>
         <h2 class="heading-large" data-key="edu_title">Pedagogia da Alternância</h2>
@@ -130,10 +189,93 @@
     </div>
   </section>
 
+  <section id="panorama" class="container">
+    <h2 class="heading-medium" data-key="panorama_title">Panorama Global</h2>
+    <p class="text-center-mt" data-key="panorama_sub">Dados que revelam a magnitude do desafio da sucessão rural no mundo.</p>
+    <div class="stats-grid panorama-stats">
+      <div class="stat-item">
+        <div class="stat-number" data-count="87">0</div>
+        <div class="stat-label" data-key="gstat1">Artigos científicos analisados (20 anos)</div>
+        <div class="stat-particles"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" data-count="75">0</div>
+        <div class="stat-label" data-key="gstat2">% de agricultores familiares em pobreza (FAO)</div>
+        <div class="stat-particles"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" data-count="67">0</div>
+        <div class="stat-label" data-key="gstat3">% das pesquisas brasileiras concentradas no Sul</div>
+        <div class="stat-particles"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" data-count="1">0</div>
+        <div class="stat-label" data-key="gstat4">% de pesquisas sobre sucessão na Amazônia</div>
+        <div class="stat-particles"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+      </div>
+    </div>
+  </section>
+
   <section id="politicas" class="container">
     <h2 class="heading-medium" data-key="policy_title">Lei 15.178/2025 — Programa Nacional de Sucessão Rural</h2>
     <div class="policy-grid" id="policyGrid"></div>
     <div class="text-center-mt"><p data-key="policy_cite">“Primeiro marco legal para incentivar jovens no campo com prioridade fiscal e técnica.”</p></div>
+  </section>
+
+  <div class="wave-divider wave-to-dark" aria-hidden="true">
+    <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+      <path class="wave-path" d="M0,64L48,69.3C96,75,192,85,288,80C384,75,480,53,576,48C672,43,768,53,864,69.3C960,85,1056,107,1152,101.3C1248,96,1344,64,1392,48L1440,32L1440,120L1392,120C1344,120,1248,120,1152,120C1056,120,960,120,864,120C768,120,672,120,576,120C480,120,384,120,288,120C192,120,96,120,48,120L0,120Z"></path>
+    </svg>
+  </div>
+
+  <section id="ciclo" class="container">
+    <h2 class="heading-medium" data-key="ciclo_title">O Ciclo da Sucessão Rural</h2>
+    <p class="text-center-mt" data-key="ciclo_subtitle">Clique em cada etapa para entender como o ciclo se completa:</p>
+    <div class="ciclo-simulador" id="cicloSimulador">
+      <div class="ciclo-etapas">
+        <button class="ciclo-btn" data-etapa="jovem" type="button">
+          <span class="ciclo-emoji" aria-hidden="true">👨‍🌾</span>
+          <span class="ciclo-label" data-key="ciclo1_title">Jovem Rural</span>
+        </button>
+        <span class="ciclo-seta" aria-hidden="true">→</span>
+        <button class="ciclo-btn" data-etapa="educacao" type="button">
+          <span class="ciclo-emoji" aria-hidden="true">🎓</span>
+          <span class="ciclo-label" data-key="ciclo2_title">Educação</span>
+        </button>
+        <span class="ciclo-seta" aria-hidden="true">→</span>
+        <button class="ciclo-btn" data-etapa="credito" type="button">
+          <span class="ciclo-emoji" aria-hidden="true">🤝</span>
+          <span class="ciclo-label" data-key="ciclo3_title">Crédito/Terra</span>
+        </button>
+        <span class="ciclo-seta" aria-hidden="true">→</span>
+        <button class="ciclo-btn" data-etapa="producao" type="button">
+          <span class="ciclo-emoji" aria-hidden="true">🌱</span>
+          <span class="ciclo-label" data-key="ciclo4_title">Produção</span>
+        </button>
+        <span class="ciclo-seta" aria-hidden="true">→</span>
+        <button class="ciclo-btn" data-etapa="retorno" type="button">
+          <span class="ciclo-emoji" aria-hidden="true">🏡</span>
+          <span class="ciclo-label" data-key="ciclo5_title">Retorno</span>
+        </button>
+      </div>
+      <div class="ciclo-descricao" id="cicloDescricao">
+        <p class="ciclo-texto-padrao" data-key="ciclo_default">Selecione uma etapa acima para ver a explicação.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="revisao" class="container">
+    <div class="split-layout">
+      <div class="split-text">
+        <span class="accent-text" data-key="review_label">Revisão Sistemática</span>
+        <h2 class="heading-large" data-key="review_title">Distribuição Geográfica das Pesquisas</h2>
+        <p data-key="review_desc">A produção científica sobre sucessão rural no Brasil está desbalanceada. O Sul concentra 67,4% dos estudos, enquanto a Amazônia representa apenas 1,2% — um gap crítico para a sustentabilidade global.</p>
+        <div class="review-highlight" data-key="review_alert">⚠️ GAP CRÍTICO: A Região Norte representa apenas 1,2% das pesquisas sobre sucessão rural.</div>
+      </div>
+      <div class="split-chart">
+        <canvas id="regionChart" width="500" height="400"></canvas>
+      </div>
+    </div>
   </section>
 
   <section id="protagonismo" class="hero hero-short">
@@ -143,20 +285,196 @@
       <span class="accent-text" data-key="prot_label">JOVENS PROTAGONISTAS</span>
       <h2 data-key="prot_title">Tecnologia e empreendedorismo no agro</h2>
       <p data-key="prot_desc">Bioinsumos, drones, gestão digital e rastreabilidade: a nova geração rural conectada.</p>
-        <div class="badge-group"><span class="badge" style="--depth:10px;--delay:0s" data-key="badge1">🌾 Agricultura de precisão</span><span class="badge" style="--depth:25px;--delay:0.3s" data-key="badge2">📱 Gestão de fazenda 4.0</span><span class="badge" style="--depth:40px;--delay:0.6s" data-key="badge3">💡 Bioeconomia</span></div>
-      <button id="openModalBtn" class="btn-primary" data-key="prot_btn">Saiba mais</button>
+      <div class="prot-actions">
+        <div class="badge-group"><span class="badge badge-d1" data-key="badge1">🌾 Agricultura de precisão</span><span class="badge badge-d2" data-key="badge2">📱 Gestão de fazenda 4.0</span><span class="badge badge-d3" data-key="badge3">💡 Bioeconomia</span></div>
+        <button id="openModalBtn" class="btn-primary" data-key="prot_btn">Saiba mais</button>
+      </div>
     </div>
   </section>
 
+  <div class="wave-divider wave-to-dark" aria-hidden="true">
+    <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+      <path class="wave-path" d="M0,64L48,69.3C96,75,192,85,288,80C384,75,480,53,576,48C672,43,768,53,864,69.3C960,85,1056,107,1152,101.3C1248,96,1344,64,1392,48L1440,32L1440,120L1392,120C1344,120,1248,120,1152,120C1056,120,960,120,864,120C768,120,672,120,576,120C480,120,384,120,288,120C192,120,96,120,48,120L0,120Z"></path>
+    </svg>
+  </div>
+
+  <section id="paradoxo" class="paradox-section">
+    <div class="paradox-bg"></div>
+    <div class="paradox-overlay"></div>
+    <div class="paradox-content">
+      <span class="accent-text" data-key="paradox_label">ANÁLISE CRÍTICA</span>
+      <h2 data-key="paradox_title">O Paradoxo da Sucessão Rural</h2>
+      <div class="typewriter-container">
+        <p id="typewriterText" data-key="paradox_text"></p>
+        <span class="typewriter-cursor">|</span>
+      </div>
+      <blockquote class="quote-block paradox-quote" data-key="paradox_quote">"O futuro do campo não se constrói apenas com crédito e tecnologia, mas com a construção diária de um lugar onde os jovens queiram estar."</blockquote>
+    </div>
+  </section>
+
+  <div class="wave-divider wave-to-dark" aria-hidden="true">
+    <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+      <path class="wave-path" d="M0,64L48,69.3C96,75,192,85,288,80C384,75,480,53,576,48C672,43,768,53,864,69.3C960,85,1056,107,1152,101.3C1248,96,1344,64,1392,48L1440,32L1440,120L1392,120C1344,120,1248,120,1152,120C1056,120,960,120,864,120C768,120,672,120,576,120C480,120,384,120,288,120C192,120,96,120,48,120L0,120Z"></path>
+    </svg>
+  </div>
+
   <section id="dados" class="container">
     <h2 data-key="chart_title">População rural ativa: evolução e projeção (2012-2030)</h2>
-    <canvas id="ruralChart" width="800" height="400"></canvas>
-    <p class="source-text" data-key="chart_note">* Dados de 2012 a 2021: IBGE / PNAD Contínua. Valores de 2024 a 2030 são projeções baseadas em tendências atuais de sucessão rural.</p>
+    <div class="chart-wrap reveal-item">
+      <svg class="chart-svg" viewBox="0 0 800 400" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Gráfico: população rural ativa brasileira 2012-2030">
+        <defs>
+          <linearGradient id="chartAreaGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#4ade80" stop-opacity="0.22"/>
+            <stop offset="100%" stop-color="#4ade80" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+
+        <!-- Grid horizontal -->
+        <line x1="60" y1="100" x2="740" y2="100" class="chart-grid"/>
+        <line x1="60" y1="156" x2="740" y2="156" class="chart-grid"/>
+        <line x1="60" y1="212" x2="740" y2="212" class="chart-grid"/>
+        <line x1="60" y1="268" x2="740" y2="268" class="chart-grid"/>
+
+        <!-- Labels Y -->
+        <text x="52" y="104" class="chart-label-y" text-anchor="end">32</text>
+        <text x="52" y="160" class="chart-label-y" text-anchor="end">30</text>
+        <text x="52" y="216" class="chart-label-y" text-anchor="end">28</text>
+        <text x="52" y="272" class="chart-label-y" text-anchor="end">26</text>
+
+        <!-- Labels X -->
+        <text x="60" y="372" class="chart-label-x" text-anchor="middle">2012</text>
+        <text x="157" y="372" class="chart-label-x" text-anchor="middle">2015</text>
+        <text x="254" y="372" class="chart-label-x" text-anchor="middle">2018</text>
+        <text x="351" y="372" class="chart-label-x" text-anchor="middle">2021</text>
+        <text x="448" y="372" class="chart-label-x" text-anchor="middle">2024</text>
+        <text x="545" y="372" class="chart-label-x" text-anchor="middle">2026</text>
+        <text x="642" y="372" class="chart-label-x" text-anchor="middle">2028</text>
+        <text x="740" y="372" class="chart-label-x" text-anchor="middle">2030</text>
+
+        <!-- Linha separadora real/projeção -->
+        <line x1="399" y1="60" x2="399" y2="340" stroke-dasharray="5,5" class="chart-split-line"/>
+        <text x="229" y="80" class="chart-split-label" text-anchor="middle">Dados reais</text>
+        <text x="570" y="80" class="chart-split-label chart-split-proj" text-anchor="middle">Projeção</text>
+
+        <!-- Área preenchida -->
+        <path class="chart-area" d="M 60,166.4 L 157,214 L 254,253.2 L 351,275.6 L 448,261.6 L 545,230.8 L 642,191.6 L 740,141.2 L 740,340 L 60,340 Z"/>
+
+        <!-- Linha principal (animada) -->
+        <path id="chartLine" class="chart-line"
+          d="M 60,166.4 L 157,214 L 254,253.2 L 351,275.6 L 448,261.6 L 545,230.8 L 642,191.6 L 740,141.2"
+          fill="none" stroke="#4ade80" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+        <!-- Pontos (reais: 0-3) -->
+        <circle cx="60" cy="166.4" r="5" class="chart-dot chart-dot-solid"/>
+        <circle cx="157" cy="214" r="5" class="chart-dot chart-dot-solid"/>
+        <circle cx="254" cy="253.2" r="5" class="chart-dot chart-dot-solid"/>
+        <circle cx="351" cy="275.6" r="5" class="chart-dot chart-dot-solid"/>
+
+        <!-- Pontos (projeção: 4+) -->
+        <circle cx="448" cy="261.6" r="4" class="chart-dot chart-dot-open"/>
+        <circle cx="545" cy="230.8" r="4" class="chart-dot chart-dot-open"/>
+        <circle cx="642" cy="191.6" r="4" class="chart-dot chart-dot-open"/>
+        <circle cx="740" cy="141.2" r="4" class="chart-dot chart-dot-open"/>
+      </svg>
+      <p class="chart-caption" data-key="chart_note">* Dados de 2012 a 2021: IBGE / PNAD Contínua. Valores de 2024 a 2030 são projeções baseadas em tendências atuais de sucessão rural.</p>
+    </div>
+  </section>
+
+  <section id="recomendacoes" class="container">
+    <h2 class="heading-medium" data-key="rec_title">Recomendações Estratégicas</h2>
+    <div class="accordion-group">
+      <div class="accordion-item sr">
+        <button class="accordion-header" aria-expanded="false"><span class="accordion-title" data-key="rec1_header">📚 Para Pesquisadores</span><span class="accordion-icon" aria-hidden="true">+</span></button>
+        <div class="accordion-body">
+          <ul>
+            <li data-key="rec1_item1">Descentralizar a produção científica — menos de 2% dos estudos focam na Amazônia</li>
+            <li data-key="rec1_item2">Incluir mulheres e não-sucessores nos desenhos de pesquisa</li>
+            <li data-key="rec1_item3">Adotar metodologias mistas que capturem aspectos subjetivos</li>
+          </ul>
+        </div>
+      </div>
+      <div class="accordion-item sr">
+        <button class="accordion-header" aria-expanded="false"><span class="accordion-title" data-key="rec2_header">🏛️ Para Gestores Públicos</span><span class="accordion-icon" aria-hidden="true">+</span></button>
+        <div class="accordion-body">
+          <ul>
+            <li data-key="rec2_item1">Políticas integradas que combinem crédito, educação contextualizada e assistência técnica</li>
+            <li data-key="rec2_item2">Programas de mentoria entre gerações</li>
+            <li data-key="rec2_item3">Incentivos fiscais para propriedades com plano de sucessão formalizado</li>
+          </ul>
+        </div>
+      </div>
+      <div class="accordion-item sr">
+        <button class="accordion-header" aria-expanded="false"><span class="accordion-title" data-key="rec3_header">🤝 Para Organizações da Sociedade Civil</span><span class="accordion-icon" aria-hidden="true">+</span></button>
+        <div class="accordion-body">
+          <ul>
+            <li data-key="rec3_item1">Fortalecer redes de jovens agricultores</li>
+            <li data-key="rec3_item2">Promover feiras e eventos que valorizem a produção jovem</li>
+            <li data-key="rec3_item3">Criar programas de intercâmbio entre regiões</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="referencias" class="container">
+    <h2 class="heading-medium" data-key="ref_title">Referências Acadêmicas</h2>
+    <div class="ref-table-wrapper">
+      <table class="ref-table">
+        <thead>
+          <tr>
+            <th data-key="ref_col_authors">Autores</th>
+            <th data-key="ref_col_year">Ano</th>
+            <th data-key="ref_col_title">Título (Artigo)</th>
+            <th data-key="ref_col_journal">Periódico</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="sr">
+            <td>Monteiro, E.P. et al.</td>
+            <td>2024</td>
+            <td data-key="ref1_title">Sucessão na agricultura familiar brasileira: uma revisão sistemática</td>
+            <td>Rev. Bras. Educ. Campo</td>
+          </tr>
+          <tr class="sr">
+            <td>Díaz Baca, M.F. et al.</td>
+            <td>2024</td>
+            <td data-key="ref2_title">Why do rural youth migrate? Evidence from Colombia and Guatemala</td>
+            <td>Frontiers in Sociology</td>
+          </tr>
+          <tr class="sr">
+            <td>Boscardin, M. et al.</td>
+            <td>2024</td>
+            <td data-key="ref3_title">Generational succession in agriculture: academic debate and scientific trends</td>
+            <td>Ciência Rural</td>
+          </tr>
+          <tr class="sr">
+            <td>Gyan, S.E.</td>
+            <td>2026</td>
+            <td data-key="ref4_title">Beyond Poverty: Socially Embedded Push Factors in Adolescent Rural-Urban Migration</td>
+            <td>York University</td>
+          </tr>
+          <tr class="sr">
+            <td>Udochukwu, I.S.</td>
+            <td>2024</td>
+            <td data-key="ref5_title">Japa Syndrome and Youth Migration in Africa</td>
+            <td>FUWJPD</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="source-text" data-key="ref_note">* Títulos originais dos artigos em inglês, conforme publicados.</p>
   </section>
 
   <footer>
     <p data-key="footer_credits">Aluno Davi Caitano · Colégio Estadual Padre Cláudio Morelli · Orientador Rafael Biano</p>
-    <button id="backToTop" class="btn-back-to-top" data-key="btn_backtop">↑ Voltar ao início</button>
+    <button id="backToTop" class="btn-back-to-top" aria-label="Voltar ao início">
+      <svg class="progress-ring" width="48" height="48" viewBox="0 0 48 48">
+        <circle class="progress-ring-bg" cx="24" cy="24" r="20" fill="none" stroke="rgba(74,222,128,0.15)" stroke-width="3"/>
+        <circle class="progress-ring-fill" cx="24" cy="24" r="20" fill="none" stroke="var(--accent)" stroke-width="3" stroke-dasharray="125.6" stroke-dashoffset="125.6" stroke-linecap="round" transform="rotate(-90 24 24)"/>
+      </svg>
+      <span class="backtop-arrow">↑</span>
+      <span class="backtop-text" data-key="btn_backtop">Voltar ao início</span>
+    </button>
   </footer>
 </main>
 
@@ -173,6 +491,6 @@
   <div class="cursor-ring"></div>
 </div>
 
-<script defer src="script.js"></script>
+<script defer src="script.js?v=3"></script>
 </body>
 </html>
